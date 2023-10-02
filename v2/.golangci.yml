@@ -41,6 +41,12 @@ output:
 
 # Specific linter configs
 linters-settings:
+  errcheck:
+    check-type-assertions: false
+    check-blank: false
+    ignore: fmt:.*
+    disable-default-exclusions: false
+
   gofmt:
     simplify: true
 
@@ -64,7 +70,6 @@ linters:
     - dupl
     - dupword
     - durationcheck
-    - errcheck
     - errchkjson
     - errname
     - errorlint
