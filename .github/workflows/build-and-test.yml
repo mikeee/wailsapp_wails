@@ -23,7 +23,7 @@ jobs:
         with:
           version: v1.54.2
           working-directory: ./v2
-          args: -c .golangci.yml
+          args: -v
 
   test_go:
     name: Run Go Tests
