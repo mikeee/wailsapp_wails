@@ -18,11 +18,11 @@ jobs:
         with:
           go-version: 1.18
 
-      - name: Setup Task
-        uses: arduino/setup-task@v1
-
-      - name: Run lint v2
-        run: task v2:lint
+      - name: Run Linter
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: 1.54
+          working-directory: ./v2
 
   test_go:
     name: Run Go Tests
