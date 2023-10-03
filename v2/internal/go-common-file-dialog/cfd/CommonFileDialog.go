@@ -34,7 +34,7 @@ type Dialog interface {
 	SetFileName(fileName string) error
 	// Release the resources allocated to this Dialog.
 	// Should be called when the dialog is finished with.
-	Release() error
+	Release()
 }
 
 type FileDialog interface {
