@@ -118,7 +118,6 @@ linters:
     - makezero
     - maligned
     - mirror
-    - misspell
     - musttag
     - nakedret
     - nestif
