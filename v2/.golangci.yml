@@ -74,7 +74,6 @@ linters:
     - dupword
     - durationcheck
     - errchkjson
-    - errname
     - errorlint
     - execinquery
     - exhaustive
