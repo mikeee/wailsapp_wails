@@ -36,7 +36,7 @@ func NewFont(family string, pointSize int, style byte) *Font {
 		panic("Invalid font style")
 	}
 
-	//Retrive screen DPI
+	// Retrive screen DPI
 	hDC := w32.GetDC(0)
 	defer w32.ReleaseDC(0, hDC)
 	screenDPIY := w32.GetDeviceCaps(hDC, w32.LOGPIXELSY)

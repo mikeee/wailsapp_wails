@@ -2,9 +2,10 @@ package runtime_test
 
 import (
 	"fmt"
-	"github.com/wailsapp/wails/v2/internal/frontend/runtime"
 	"sync"
 	"testing"
+
+	"github.com/wailsapp/wails/v2/internal/frontend/runtime"
 )
 import "github.com/matryer/is"
 
@@ -34,5 +35,4 @@ func Test_EventsOn(t *testing.T) {
 	manager.Emit(eventName, "test payload")
 	wg.Wait()
 	i.Equal(1, counter)
-
 }

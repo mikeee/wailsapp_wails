@@ -32,17 +32,23 @@ void addAccelerator(GtkWidget* menuItem, GtkAccelGroup* group, guint key, GdkMod
 }
 */
 import "C"
-import "github.com/wailsapp/wails/v2/pkg/menu"
-import "unsafe"
 
-var menuIdCounter int
-var menuItemToId map[*menu.MenuItem]int
-var menuIdToItem map[int]*menu.MenuItem
-var gtkCheckboxCache map[*menu.MenuItem][]*C.GtkWidget
-var gtkMenuCache map[*menu.MenuItem]*C.GtkWidget
-var gtkRadioMenuCache map[*menu.MenuItem][]*C.GtkWidget
-var gtkSignalHandlers map[*C.GtkWidget]C.gulong
-var gtkSignalToMenuItem map[*C.GtkWidget]*menu.MenuItem
+import (
+	"unsafe"
+
+	"github.com/wailsapp/wails/v2/pkg/menu"
+)
+
+var (
+	menuIdCounter       int
+	menuItemToId        map[*menu.MenuItem]int
+	menuIdToItem        map[int]*menu.MenuItem
+	gtkCheckboxCache    map[*menu.MenuItem][]*C.GtkWidget
+	gtkMenuCache        map[*menu.MenuItem]*C.GtkWidget
+	gtkRadioMenuCache   map[*menu.MenuItem][]*C.GtkWidget
+	gtkSignalHandlers   map[*C.GtkWidget]C.gulong
+	gtkSignalToMenuItem map[*C.GtkWidget]*menu.MenuItem
+)
 
 func (f *Frontend) MenuSetApplicationMenu(menu *menu.Menu) {
 	f.mainWindow.SetApplicationMenu(menu)

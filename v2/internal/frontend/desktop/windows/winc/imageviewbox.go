@@ -23,10 +23,12 @@ const (
 	DirY2
 )
 
-var ImageBoxPen = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(140, 140, 220)))
-var ImageBoxHiPen = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(220, 140, 140)))
-var ImageBoxMarkBrush = NewSolidColorBrush(RGB(40, 40, 40))
-var ImageBoxMarkPen = NewPen(w32.PS_GEOMETRIC, 2, ImageBoxMarkBrush)
+var (
+	ImageBoxPen       = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(140, 140, 220)))
+	ImageBoxHiPen     = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(220, 140, 140)))
+	ImageBoxMarkBrush = NewSolidColorBrush(RGB(40, 40, 40))
+	ImageBoxMarkPen   = NewPen(w32.PS_GEOMETRIC, 2, ImageBoxMarkBrush)
+)
 
 type ImageBox struct {
 	Name         string

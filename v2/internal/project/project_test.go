@@ -81,6 +81,7 @@ func TestProject_GetFrontendDir(t *testing.T) {
 		})
 	}
 }
+
 func TestProject_GetBuildDir(t *testing.T) {
 	cwd := lo.Must(os.Getwd())
 	tests := []struct {

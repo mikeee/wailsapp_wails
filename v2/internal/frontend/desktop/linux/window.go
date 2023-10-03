@@ -16,6 +16,7 @@ package linux
 
 */
 import "C"
+
 import (
 	"log"
 	"strings"
@@ -289,7 +290,6 @@ func (w *Window) SetBackgroundColour(r uint8, g uint8, b uint8, a uint8) {
 		windowIsTranslucent: gtkBool(windowIsTranslucent),
 	}
 	invokeOnMainThread(func() { C.SetBackgroundColour(unsafe.Pointer(&data)) })
-
 }
 
 func (w *Window) SetWindowIcon(icon []byte) {
@@ -369,7 +369,6 @@ func (w *Window) Quit() {
 }
 
 func (w *Window) OpenFileDialog(dialogOptions frontend.OpenDialogOptions, multipleFiles int, action C.GtkFileChooserAction) {
-
 	data := C.OpenFileDialogOptions{
 		window:        w.asGTKWindow(),
 		title:         C.CString(dialogOptions.Title),
@@ -423,7 +422,6 @@ func (w *Window) OpenFileDialog(dialogOptions frontend.OpenDialogOptions, multip
 }
 
 func (w *Window) MessageDialog(dialogOptions frontend.MessageDialogOptions) {
-
 	data := C.MessageDialogOptions{
 		window:  w.gtkWindow,
 		title:   C.CString(dialogOptions.Title),

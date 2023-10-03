@@ -25,7 +25,6 @@ type TsGenerationOptionsTest struct {
 }
 
 func TestBindings_GenerateModels(t *testing.T) {
-
 	tests := []BindingTest{
 		EscapedNameTest,
 		ImportedStructTest,

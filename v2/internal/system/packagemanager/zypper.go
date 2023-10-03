@@ -116,7 +116,6 @@ func (z *Zypper) InstallCommand(pkg *Package) string {
 }
 
 func (z *Zypper) getPackageVersion(pkg *Package, output string) {
-
 	reg := regexp.MustCompile(`.*Version.*:(.*)`)
 	matches := reg.FindStringSubmatch(output)
 	pkg.Version = ""

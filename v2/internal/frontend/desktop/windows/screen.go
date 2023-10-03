@@ -30,7 +30,7 @@ func MonitorsEqual(first w32.MONITORINFO, second w32.MONITORINFO) bool {
 func GetMonitorInfo(hMonitor w32.HMONITOR) (*w32.MONITORINFO, error) {
 	// Adapted from winc.utils.getMonitorInfo TODO: add this to win32
 	// See docs for
-	//https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmonitorinfoa
+	// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmonitorinfoa
 
 	var info w32.MONITORINFO
 	info.CbSize = uint32(unsafe.Sizeof(info))

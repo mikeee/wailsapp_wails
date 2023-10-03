@@ -21,7 +21,6 @@ func platformInfo() (*OS, error) {
 }
 
 func parseOsRelease(osRelease string) *OS {
-
 	// Default value
 	var result OS
 	result.ID = "Unknown"

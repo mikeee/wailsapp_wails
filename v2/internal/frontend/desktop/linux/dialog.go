@@ -4,8 +4,9 @@
 package linux
 
 import (
-	"github.com/wailsapp/wails/v2/internal/frontend"
 	"unsafe"
+
+	"github.com/wailsapp/wails/v2/internal/frontend"
 )
 
 /*
@@ -20,8 +21,10 @@ const (
 	GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER C.GtkFileChooserAction = C.GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER
 )
 
-var openFileResults = make(chan []string)
-var messageDialogResult = make(chan string)
+var (
+	openFileResults     = make(chan []string)
+	messageDialogResult = make(chan string)
+)
 
 func (f *Frontend) OpenFileDialog(dialogOptions frontend.OpenDialogOptions) (result string, err error) {
 	f.mainWindow.OpenFileDialog(dialogOptions, 0, GTK_FILE_CHOOSER_ACTION_OPEN)

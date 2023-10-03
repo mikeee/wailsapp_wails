@@ -81,7 +81,6 @@ func (sp *VResizer) SetControl(control1, control2 Dockable, dir Direction, minSi
 	})*/
 
 	// ---- finish ADDED
-
 }
 
 func (sp *VResizer) update(x int) {
@@ -164,7 +163,6 @@ func (sp *HResizer) SetControl(control1, control2 Dockable, dir Direction, minSi
 		panic("invalid direction")
 	}
 	sp.dir = dir
-
 }
 
 func (sp *HResizer) update(y int) {

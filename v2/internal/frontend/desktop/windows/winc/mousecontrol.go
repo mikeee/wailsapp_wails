@@ -35,10 +35,10 @@ func (cc *MouseControl) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 	case w32.WM_CLOSE:
 		cc.onClose.Fire(NewEvent(sender, nil))
 	case w32.WM_MOUSEMOVE:
-		//if cc.isMouseLeft {
+		// if cc.isMouseLeft {
 
 		cc.onMouseHover.Fire(NewEvent(sender, nil))
-		//internalTrackMouseEvent(cc.hwnd)
+		// internalTrackMouseEvent(cc.hwnd)
 		cc.isMouseLeft = false
 
 		//}

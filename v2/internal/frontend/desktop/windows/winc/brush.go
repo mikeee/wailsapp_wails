@@ -29,7 +29,7 @@ func NewSolidColorBrush(color Color) *Brush {
 }
 
 func NewSystemColorBrush(colorIndex int) *Brush {
-	//lb := w32.LOGBRUSH{LbStyle: w32.BS_SOLID, LbColor: w32.COLORREF(colorIndex)}
+	// lb := w32.LOGBRUSH{LbStyle: w32.BS_SOLID, LbColor: w32.COLORREF(colorIndex)}
 	lb := w32.LOGBRUSH{LbStyle: w32.BS_NULL}
 	hBrush := w32.GetSysColorBrush(colorIndex)
 	if hBrush == 0 {

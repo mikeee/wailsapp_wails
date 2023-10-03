@@ -4,9 +4,10 @@
 package windows
 
 import (
+	"strings"
+
 	"github.com/wailsapp/wails/v2/internal/frontend/desktop/windows/winc"
 	"github.com/wailsapp/wails/v2/pkg/menu/keys"
-	"strings"
 )
 
 var ModifierMap = map[keys.Modifier]winc.Modifiers{
@@ -17,7 +18,6 @@ var ModifierMap = map[keys.Modifier]winc.Modifiers{
 }
 
 func acceleratorToWincShortcut(accelerator *keys.Accelerator) winc.Shortcut {
-
 	if accelerator == nil {
 		return winc.NoShortcut
 	}

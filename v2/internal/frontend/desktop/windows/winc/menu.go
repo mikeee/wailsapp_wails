@@ -143,7 +143,6 @@ func (m *Menu) AddSubMenu(text string) *MenuItem {
 // This method will iterate through the menu items, group radio items together, build a
 // quick access map and set the initial items
 func updateRadioGroups() {
-
 	if !initialised {
 		return
 	}
@@ -198,7 +197,6 @@ func updateRadioGroups() {
 		endID := radioGroup.members[len(radioGroup.members)-1].id
 		w32.SelectRadioMenuItem(item.id, startID, endID, radioGroup.hwnd)
 	}
-
 }
 
 func (mi *MenuItem) OnClick() *EventManager {
@@ -252,7 +250,7 @@ func addMenuItem(hMenu, hSubMenu w32.HMENU, text string, shortcut Shortcut, imag
 		id:        nextMenuItemID,
 		checkable: checkable,
 		isRadio:   false,
-		//visible:  true,
+		// visible:  true,
 	}
 	nextMenuItemID++
 	actionsByID[item.id] = item

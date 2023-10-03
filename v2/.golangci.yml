@@ -50,6 +50,9 @@ linters-settings:
   gofmt:
     simplify: true
 
+  gofumpt:
+    extra-rules: false
+
 linters:
   fast: false
   # Enable all available linters.
@@ -93,7 +96,6 @@ linters:
     - godot
     - godox
     - goerr113
-    - gofumpt
     - goheader
     - goimports
     - golint

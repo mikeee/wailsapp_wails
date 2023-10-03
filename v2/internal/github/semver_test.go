@@ -1,8 +1,9 @@
 package github
 
 import (
-	"github.com/matryer/is"
 	"testing"
+
+	"github.com/matryer/is"
 )
 
 func TestSemanticVersion_IsGreaterThan(t *testing.T) {
@@ -39,5 +40,4 @@ func TestSemanticVersion_IsGreaterThan(t *testing.T) {
 	result, err = rc1.IsGreaterThan(beta44)
 	is2.NoErr(err)
 	is2.True(result)
-
 }

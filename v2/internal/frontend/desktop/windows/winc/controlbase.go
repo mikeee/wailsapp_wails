@@ -159,7 +159,7 @@ func (cba *ControlBase) Close() {
 }
 
 func (cba *ControlBase) SetTranslucentBackground() {
-	var accent = w32.ACCENT_POLICY{
+	accent := w32.ACCENT_POLICY{
 		AccentState: w32.ACCENT_ENABLE_BLURBEHIND,
 	}
 	var data w32.WINDOWCOMPOSITIONATTRIBDATA
@@ -226,6 +226,7 @@ func (cba *ControlBase) SetMinSize(width, height int) {
 		w32.MoveWindow(cba.hwnd, x, y, clampedWidth, clampedHeight, true)
 	}
 }
+
 func (cba *ControlBase) SetMaxSize(width, height int) {
 	cba.maxWidth = width
 	cba.maxHeight = height
@@ -270,6 +271,7 @@ func (cba *ControlBase) SetPos(x, y int) {
 
 	w32.SetWindowPos(cba.hwnd, w32.HWND_TOP, int(workRect.Left)+x, int(workRect.Top)+y, 0, 0, w32.SWP_NOSIZE)
 }
+
 func (cba *ControlBase) SetAlwaysOnTop(b bool) {
 	if b {
 		w32.SetWindowPos(cba.hwnd, w32.HWND_TOPMOST, 0, 0, 0, 0, w32.SWP_NOSIZE|w32.SWP_NOMOVE)
@@ -323,6 +325,7 @@ func (cba *ControlBase) ClientRect() *Rect {
 	rect := w32.GetClientRect(cba.hwnd)
 	return ScreenToClientRect(cba.hwnd, rect)
 }
+
 func (cba *ControlBase) ClientWidth() int {
 	rect := w32.GetClientRect(cba.hwnd)
 	return int(rect.Right - rect.Left)

@@ -217,6 +217,6 @@ func (sd *SimpleDock) Update() {
 			c.child.SetPos(x, y)
 			c.child.SetSize(w, h)
 		}
-		//c.child.Invalidate(true)
+		// c.child.Invalidate(true)
 	}
 }

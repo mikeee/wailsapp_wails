@@ -141,7 +141,6 @@ func (fm *Form) Restore() {
 
 // Public methods
 func (fm *Form) Center() {
-
 	windowInfo := getWindowInfo(fm.hwnd)
 	frameless := windowInfo.IsPopup()
 
@@ -228,7 +227,7 @@ func (fm *Form) EnableSizable(b bool) {
 }
 
 func (fm *Form) EnableDragMove(_ bool) {
-	//fm.isDragMove = b
+	// fm.isDragMove = b
 }
 
 func (fm *Form) EnableTopMost(b bool) {
@@ -240,7 +239,6 @@ func (fm *Form) EnableTopMost(b bool) {
 }
 
 func (fm *Form) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
-
 	switch msg {
 	case w32.WM_COMMAND:
 		if lparam == 0 && w32.HIWORD(uint32(wparam)) == 0 {

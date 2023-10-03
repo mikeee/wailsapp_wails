@@ -236,7 +236,6 @@ func CreateApp(appoptions *options.App) (*App, error) {
 	result.options = appoptions
 
 	return result, nil
-
 }
 
 func tryInferAssetDirFromFS(assets iofs.FS) (string, error) {

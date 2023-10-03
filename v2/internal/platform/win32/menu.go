@@ -2,8 +2,10 @@
 
 package win32
 
-type Menu HMENU
-type PopupMenu Menu
+type (
+	Menu      HMENU
+	PopupMenu Menu
+)
 
 func CreatePopupMenu() PopupMenu {
 	ret, _, _ := procCreatePopupMenu.Call(0, 0, 0, 0)

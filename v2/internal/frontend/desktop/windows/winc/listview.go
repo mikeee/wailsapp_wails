@@ -173,7 +173,7 @@ func (lv *ListView) StretchLastColumn() error {
 		return nil
 	}
 	if w32.SendMessage(lv.hwnd, w32.LVM_SETCOLUMNWIDTH, uintptr(lv.cols-1), w32.LVSCW_AUTOSIZE_USEHEADER) == 0 {
-		//panic("LVM_SETCOLUMNWIDTH failed")
+		// panic("LVM_SETCOLUMNWIDTH failed")
 	}
 	return nil
 }
@@ -459,8 +459,10 @@ func (lv *ListView) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 				fmt.Println(nmdi.Item.PszText, nmdi.Item)
 				if item, ok := lv.handle2Item[nmdi.Item.LParam]; ok {
 					lv.onEndLabelEdit.Fire(NewEvent(lv,
-						&LabelEditEventData{Item: item,
-							Text: w32.UTF16PtrToString(nmdi.Item.PszText)}))
+						&LabelEditEventData{
+							Item: item,
+							Text: w32.UTF16PtrToString(nmdi.Item.PszText),
+						}))
 				}
 				return w32.TRUE
 			}

@@ -1,16 +1,16 @@
 package fs
 
 import (
-	"github.com/samber/lo"
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/samber/lo"
 
 	"github.com/matryer/is"
 )
 
 func TestRelativePath(t *testing.T) {
-
 	i := is.New(t)
 
 	cwd, err := os.Getwd()
@@ -28,7 +28,6 @@ func TestRelativePath(t *testing.T) {
 	actual = RelativePath("..", "fs", "fs.go")
 	expected := filepath.Join(cwd, "fs.go")
 	i.Equal(actual, expected)
-
 }
 
 func Test_FindFileInParents(t *testing.T) {
@@ -42,7 +41,7 @@ func Test_FindFileInParents(t *testing.T) {
 			setup: func() (string, string) {
 				tempDir := os.TempDir()
 				testDir := lo.Must(os.MkdirTemp(tempDir, "projectPath"))
-				_ = os.MkdirAll(testDir, 0755)
+				_ = os.MkdirAll(testDir, 0o755)
 				return testDir, ""
 			},
 			wantErr: true,
@@ -52,9 +51,9 @@ func Test_FindFileInParents(t *testing.T) {
 			setup: func() (string, string) {
 				tempDir := os.TempDir()
 				testDir := lo.Must(os.MkdirTemp(tempDir, "projectPath"))
-				_ = os.MkdirAll(testDir, 0755)
+				_ = os.MkdirAll(testDir, 0o755)
 				configFile := filepath.Join(testDir, "wails.json")
-				_ = os.WriteFile(configFile, []byte("{}"), 0755)
+				_ = os.WriteFile(configFile, []byte("{}"), 0o755)
 				return testDir, configFile
 			},
 			wantErr: false,
@@ -64,10 +63,10 @@ func Test_FindFileInParents(t *testing.T) {
 			setup: func() (string, string) {
 				tempDir := os.TempDir()
 				testDir := lo.Must(os.MkdirTemp(tempDir, "projectPath"))
-				_ = os.MkdirAll(testDir, 0755)
+				_ = os.MkdirAll(testDir, 0o755)
 				parentDir := filepath.Dir(testDir)
 				configFile := filepath.Join(parentDir, "wails.json")
-				_ = os.WriteFile(configFile, []byte("{}"), 0755)
+				_ = os.WriteFile(configFile, []byte("{}"), 0o755)
 				return testDir, configFile
 			},
 			wantErr: false,

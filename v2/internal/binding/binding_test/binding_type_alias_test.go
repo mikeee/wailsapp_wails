@@ -1,10 +1,11 @@
 package binding_test
 
 import (
-	"github.com/wailsapp/wails/v2/internal/binding/binding_test/binding_test_import/int_package"
 	"io/fs"
 	"os"
 	"testing"
+
+	"github.com/wailsapp/wails/v2/internal/binding/binding_test/binding_test_import/int_package"
 
 	"github.com/wailsapp/wails/v2/internal/binding"
 	"github.com/wailsapp/wails/v2/internal/logger"
@@ -26,8 +27,10 @@ export function Slice():Promise<Array<string>>;
 export function SliceImportedStruct():Promise<Array<int_package.SomeStruct>>;
 `
 
-type AliasTest struct{}
-type MapAlias map[string]string
+type (
+	AliasTest struct{}
+	MapAlias  map[string]string
+)
 
 func (h *AliasTest) Map() map[string]string                                        { return nil }
 func (h *AliasTest) MapAlias() MapAlias                                            { return nil }

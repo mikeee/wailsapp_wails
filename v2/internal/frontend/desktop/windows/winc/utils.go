@@ -116,6 +116,7 @@ func getMonitorInfo(hwnd w32.HWND) *w32.MONITORINFO {
 	w32.GetMonitorInfo(currentMonitor, &info)
 	return &info
 }
+
 func getWindowInfo(hwnd w32.HWND) *w32.WINDOWINFO {
 	var info w32.WINDOWINFO
 	info.CbSize = uint32(unsafe.Sizeof(info))

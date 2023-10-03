@@ -1,11 +1,12 @@
 package dev
 
 import (
-	"github.com/samber/lo"
 	"os"
 	"path/filepath"
 	"reflect"
 	"testing"
+
+	"github.com/samber/lo"
 
 	"github.com/stretchr/testify/require"
 
@@ -61,7 +62,6 @@ func Test_processDirectories(t *testing.T) {
 }
 
 func Test_GetIgnoreDirs(t *testing.T) {
-
 	// Remove testdir if it exists
 	_ = os.RemoveAll("testdir")
 

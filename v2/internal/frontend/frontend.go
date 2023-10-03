@@ -123,7 +123,7 @@ type Frontend interface {
 	WindowClose()
 	WindowPrint()
 
-	//Screen
+	// Screen
 	ScreenGetAll() ([]Screen, error)
 
 	// Menus

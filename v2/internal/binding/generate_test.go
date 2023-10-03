@@ -8,8 +8,7 @@ import (
 	"github.com/wailsapp/wails/v2/internal/logger"
 )
 
-type BindForTest struct {
-}
+type BindForTest struct{}
 
 func (b *BindForTest) GetA() A {
 	return A{}
@@ -37,7 +36,6 @@ func TestNestedStruct(t *testing.T) {
 }
 
 func Test_goTypeToJSDocType(t *testing.T) {
-
 	tests := []struct {
 		name  string
 		input string

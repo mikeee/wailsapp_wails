@@ -38,7 +38,6 @@ const startURL = "http://wails.localhost/"
 type Screen = frontend.Screen
 
 type Frontend struct {
-
 	// Context
 	ctx context.Context
 
@@ -65,7 +64,6 @@ type Frontend struct {
 }
 
 func NewFrontend(ctx context.Context, appoptions *options.App, myLogger *logger.Logger, appBindings *binding.Bindings, dispatcher frontend.Dispatcher) *Frontend {
-
 	// Get Windows build number
 	versionInfo, _ := operatingsystem.GetWindowsVersionInfo()
 
@@ -140,8 +138,8 @@ func (f *Frontend) Run(ctx context.Context) error {
 	mainWindow := NewWindow(nil, f.frontendOptions, f.versionInfo, f.chromium)
 	f.mainWindow = mainWindow
 
-	var _debug = ctx.Value("debug")
-	var _devtoolsEnabled = ctx.Value("devtoolsEnabled")
+	_debug := ctx.Value("debug")
+	_devtoolsEnabled := ctx.Value("devtoolsEnabled")
 
 	if _debug != nil {
 		f.debug = _debug.(bool)
@@ -219,6 +217,7 @@ func (f *Frontend) WindowSetPosition(x, y int) {
 	defer runtime.UnlockOSThread()
 	f.mainWindow.SetPos(x, y)
 }
+
 func (f *Frontend) WindowGetPosition() (int, int) {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
@@ -335,6 +334,7 @@ func (f *Frontend) WindowSetMinSize(width int, height int) {
 	defer runtime.UnlockOSThread()
 	f.mainWindow.SetMinSize(width, height)
 }
+
 func (f *Frontend) WindowSetMaxSize(width int, height int) {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
@@ -373,7 +373,6 @@ func (f *Frontend) WindowSetBackgroundColour(col *options.RGBA) {
 			log.Fatal(err)
 		}
 	})
-
 }
 
 func (f *Frontend) ScreenGetAll() ([]Screen, error) {
@@ -384,7 +383,6 @@ func (f *Frontend) ScreenGetAll() ([]Screen, error) {
 	f.mainWindow.Invoke(func() {
 		screens, err = GetAllScreens(f.mainWindow.Handle())
 		wg.Done()
-
 	})
 	wg.Wait()
 	return screens, err
@@ -594,7 +592,7 @@ func (f *Frontend) processRequest(req *edge.ICoreWebView2WebResourceRequest, arg
 		return
 	}
 
-	//Get the request
+	// Get the request
 	uri, _ := req.GetUri()
 	reqUri, err := url.ParseRequestURI(uri)
 	if err != nil {
@@ -628,7 +626,6 @@ func (f *Frontend) processRequest(req *edge.ICoreWebView2WebResourceRequest, arg
 				fn()
 			}
 		})
-
 	if err != nil {
 		f.logger.Error("%s: NewRequest failed: %s", uri, err)
 		return
@@ -784,7 +781,6 @@ func (f *Frontend) navigationCompleted(sender *edge.ICoreWebView2, args *edge.IC
 	}
 
 	f.mainWindow.hasBeenShown = true
-
 }
 
 func (f *Frontend) ShowWindow() {
@@ -819,7 +815,6 @@ func (f *Frontend) ShowWindow() {
 		w32.SetForegroundWindow(f.mainWindow.Handle())
 		w32.SetFocus(f.mainWindow.Handle())
 	})
-
 }
 
 func (f *Frontend) onFocus(arg *winc.Event) {

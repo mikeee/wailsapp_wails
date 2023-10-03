@@ -109,19 +109,20 @@ func init() {
 			SetPreferredAppMode(PreferredAppModeAllowDark)
 		}
 	}
-
 }
 
-type HANDLE uintptr
-type HINSTANCE = HANDLE
-type HICON = HANDLE
-type HCURSOR = HANDLE
-type HBRUSH = HANDLE
-type HWND = HANDLE
-type HMENU = HANDLE
-type DWORD = uint32
-type ATOM uint16
-type MenuID uint16
+type (
+	HANDLE    uintptr
+	HINSTANCE = HANDLE
+	HICON     = HANDLE
+	HCURSOR   = HANDLE
+	HBRUSH    = HANDLE
+	HWND      = HANDLE
+	HMENU     = HANDLE
+	DWORD     = uint32
+	ATOM      uint16
+	MenuID    uint16
+)
 
 const (
 	WM_APP                    = 32768

@@ -10,7 +10,6 @@ import (
 )
 
 func TestList(t *testing.T) {
-
 	is2 := is.New(t)
 	templateList, err := List()
 	is2.NoErr(err)
@@ -19,7 +18,6 @@ func TestList(t *testing.T) {
 }
 
 func TestShortname(t *testing.T) {
-
 	is2 := is.New(t)
 
 	vanillaTemplate, err := getTemplateByShortname("vanilla")
@@ -29,7 +27,6 @@ func TestShortname(t *testing.T) {
 }
 
 func TestInstall(t *testing.T) {
-
 	is2 := is.New(t)
 
 	// Change to the directory of this file
@@ -50,5 +47,4 @@ func TestInstall(t *testing.T) {
 	}()
 	_, _, err = Install(options)
 	is2.NoErr(err)
-
 }

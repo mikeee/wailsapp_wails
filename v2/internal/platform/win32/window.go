@@ -4,10 +4,11 @@ package win32
 
 import (
 	"fmt"
-	"github.com/samber/lo"
-	"golang.org/x/sys/windows"
 	"syscall"
 	"unsafe"
+
+	"github.com/samber/lo"
+	"golang.org/x/sys/windows"
 )
 
 func LoadIconWithResourceID(instance HINSTANCE, res uintptr) HICON {
@@ -58,7 +59,6 @@ func RegisterClass(className string, wndproc uintptr, instance HINSTANCE) error 
 }
 
 func CreateWindow(className string, instance HINSTANCE, parent HWND, exStyle, style uint) HWND {
-
 	classNamePtr := lo.Must(syscall.UTF16PtrFromString(className))
 
 	result := CreateWindowEx(
@@ -85,7 +85,8 @@ func CreateWindow(className string, instance HINSTANCE, parent HWND, exStyle, st
 
 func CreateWindowEx(exStyle uint, className, windowName *uint16,
 	style uint, x, y, width, height int, parent HWND, menu HMENU,
-	instance HINSTANCE, param unsafe.Pointer) HWND {
+	instance HINSTANCE, param unsafe.Pointer,
+) HWND {
 	ret, _, _ := procCreateWindowEx.Call(
 		uintptr(exStyle),
 		uintptr(unsafe.Pointer(className)),

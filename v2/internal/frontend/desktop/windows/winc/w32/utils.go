@@ -133,7 +133,7 @@ func ComInvoke(disp *IDispatch, dispid int32, dispatch int16, params ...interfac
 	if len(params) > 0 {
 		vargs = make([]VARIANT, len(params))
 		for i, v := range params {
-			//n := len(params)-i-1
+			// n := len(params)-i-1
 			n := len(params) - i - 1
 			VariantInit(&vargs[n])
 			switch v.(type) {

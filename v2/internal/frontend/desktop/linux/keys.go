@@ -10,6 +10,7 @@ package linux
 
 */
 import "C"
+
 import (
 	"github.com/wailsapp/wails/v2/pkg/menu/keys"
 )
@@ -90,7 +91,6 @@ func parseKey(key string) C.guint {
 }
 
 func parseModifiers(modifiers []keys.Modifier) C.GdkModifierType {
-
 	var result C.GdkModifierType
 
 	for _, modifier := range modifiers {

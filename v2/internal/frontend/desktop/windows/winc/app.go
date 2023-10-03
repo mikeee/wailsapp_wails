@@ -13,11 +13,9 @@ import (
 	"github.com/wailsapp/wails/v2/internal/frontend/desktop/windows/winc/w32"
 )
 
-var (
-	// resource compilation tool assigns app.ico ID of 3
-	// rsrc -manifest app.manifest -ico app.ico -o rsrc.syso
-	AppIconID = 3
-)
+// resource compilation tool assigns app.ico ID of 3
+// rsrc -manifest app.manifest -ico app.ico -o rsrc.syso
+var AppIconID = 3
 
 func init() {
 	runtime.LockOSThread()
@@ -30,9 +28,8 @@ func init() {
 	// Initialize the common controls
 	var initCtrls w32.INITCOMMONCONTROLSEX
 	initCtrls.DwSize = uint32(unsafe.Sizeof(initCtrls))
-	initCtrls.DwICC =
-		w32.ICC_LISTVIEW_CLASSES | w32.ICC_PROGRESS_CLASS | w32.ICC_TAB_CLASSES |
-			w32.ICC_TREEVIEW_CLASSES | w32.ICC_BAR_CLASSES
+	initCtrls.DwICC = w32.ICC_LISTVIEW_CLASSES | w32.ICC_PROGRESS_CLASS | w32.ICC_TAB_CLASSES |
+		w32.ICC_TREEVIEW_CLASSES | w32.ICC_BAR_CLASSES
 
 	w32.InitCommonControlsEx(&initCtrls)
 }
@@ -60,7 +57,6 @@ func PreTranslateMessage(msg *w32.MSG) bool {
 			if controller := GetMsgHandler(msg.Hwnd); controller != nil {
 				// Search the chain of parents for pretranslated messages.
 				for p := controller; p != nil; p = p.Parent() {
-
 					if processed = p.PreTranslateMessage(msg); processed {
 						break
 					}
@@ -78,7 +74,6 @@ func RunMainLoop() int {
 	defer w32.GlobalFree(w32.HGLOBAL(unsafe.Pointer(m)))
 
 	for w32.GetMessage(m, 0, 0, 0) != 0 {
-
 		if !PreTranslateMessage(m) {
 			w32.TranslateMessage(m)
 			w32.DispatchMessage(m)

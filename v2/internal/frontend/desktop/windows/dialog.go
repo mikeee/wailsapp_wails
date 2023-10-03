@@ -30,7 +30,6 @@ func getDefaultFolder(folder string) (string, error) {
 
 // OpenDirectoryDialog prompts the user to select a directory
 func (f *Frontend) OpenDirectoryDialog(options frontend.OpenDialogOptions) (string, error) {
-
 	defaultFolder, err := getDefaultFolder(options.DefaultDirectory)
 	if err != nil {
 		return "", err
@@ -80,7 +79,6 @@ func (f *Frontend) OpenFileDialog(options frontend.OpenDialogOptions) (string, e
 
 // OpenMultipleFilesDialog prompts the user to select a file
 func (f *Frontend) OpenMultipleFilesDialog(options frontend.OpenDialogOptions) ([]string, error) {
-
 	defaultFolder, err := getDefaultFolder(options.DefaultDirectory)
 	if err != nil {
 		return nil, err
@@ -107,7 +105,6 @@ func (f *Frontend) OpenMultipleFilesDialog(options frontend.OpenDialogOptions) (
 
 // SaveFileDialog prompts the user to select a file
 func (f *Frontend) SaveFileDialog(options frontend.SaveDialogOptions) (string, error) {
-
 	defaultFolder, err := getDefaultFolder(options.DefaultDirectory)
 	if err != nil {
 		return "", err
@@ -175,7 +172,6 @@ func calculateMessageDialogFlags(options frontend.MessageDialogOptions) uint32 {
 
 // MessageDialog show a message dialog to the user
 func (f *Frontend) MessageDialog(options frontend.MessageDialogOptions) (string, error) {
-
 	title, err := syscall.UTF16PtrFromString(options.Title)
 	if err != nil {
 		return "", err
