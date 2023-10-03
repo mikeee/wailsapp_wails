@@ -3,9 +3,10 @@
 package windows
 
 import (
-	"github.com/wailsapp/go-webview2/pkg/edge"
 	"sync"
 	"unsafe"
+
+	"github.com/wailsapp/go-webview2/pkg/edge"
 
 	"github.com/wailsapp/wails/v2/internal/frontend/desktop/windows/win32"
 	"github.com/wailsapp/wails/v2/internal/system/operatingsystem"
@@ -68,7 +69,7 @@ func NewWindow(parent winc.Controller, appoptions *options.App, versionInfo *ope
 		exStyle |= w32.WS_EX_TOPMOST
 	}
 
-	var dwStyle = w32.WS_OVERLAPPEDWINDOW
+	dwStyle := w32.WS_OVERLAPPEDWINDOW
 
 	winc.RegClassOnlyOnce("wailsWindow")
 	handle := winc.CreateWindow("wailsWindow", parent, uint(exStyle), uint(dwStyle))
@@ -184,7 +185,6 @@ func (w *Window) IsVisible() bool {
 }
 
 func (w *Window) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
-
 	switch msg {
 	case win32.WM_POWERBROADCAST:
 		switch wparam {
@@ -209,7 +209,7 @@ func (w *Window) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 	case w32.WM_MOVE, w32.WM_MOVING:
 		w.chromium.NotifyParentWindowPositionChanged()
 	case w32.WM_ACTIVATE:
-		//if !w.frontendOptions.Frameless {
+		// if !w.frontendOptions.Frameless {
 		w.themeChanged = true
 		if int(wparam) == w32.WA_INACTIVE {
 			w.isActive = false
@@ -220,7 +220,7 @@ func (w *Window) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 			//}
 		}
 
-	case 0x02E0: //w32.WM_DPICHANGED
+	case 0x02E0: // w32.WM_DPICHANGED
 		newWindowSize := (*w32.RECT)(unsafe.Pointer(lparam))
 		w32.SetWindowPos(w.Handle(),
 			uintptr(0),

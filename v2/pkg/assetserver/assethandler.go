@@ -37,7 +37,6 @@ type assetHandler struct {
 }
 
 func NewAssetHandler(options assetserver.Options, log Logger) (http.Handler, error) {
-
 	vfs := options.Assets
 	if vfs != nil {
 		if _, err := vfs.Open("."); err != nil {

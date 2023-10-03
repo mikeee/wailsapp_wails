@@ -3,14 +3,14 @@
 package menu_test
 
 import (
+	"testing"
+
 	"github.com/stretchr/testify/require"
 	platformMenu "github.com/wailsapp/wails/v2/internal/platform/menu"
 	"github.com/wailsapp/wails/v2/pkg/menu"
-	"testing"
 )
 
 func TestManager_ProcessClick_Checkbox(t *testing.T) {
-
 	checkbox := menu.Label("Checkbox").SetChecked(false)
 	menu1 := &menu.Menu{
 		Items: []*menu.MenuItem{
@@ -157,7 +157,6 @@ func TestManager_ProcessClick_Checkbox(t *testing.T) {
 }
 
 func TestManager_ProcessClick_RadioGroups(t *testing.T) {
-
 	radio1 := menu.Radio("Radio1", false, nil, nil)
 	radio2 := menu.Radio("Radio2", false, nil, nil)
 	radio3 := menu.Radio("Radio3", false, nil, nil)

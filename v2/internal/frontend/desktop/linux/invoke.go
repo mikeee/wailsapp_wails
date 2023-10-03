@@ -16,6 +16,7 @@ static inline void triggerInvokesOnMainThread() {
 }
 */
 import "C"
+
 import (
 	"runtime"
 	"sync"

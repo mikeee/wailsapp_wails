@@ -6,6 +6,24 @@ on:
   workflow_dispatch:
 
 jobs:
+  lint_go:
+    name: Run Go Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.18
+
+      - name: Setup Task
+        uses: arduino/setup-task@v1
+
+      - name: Run lint v2
+        run: task v2:lint
+
   test_go:
     name: Run Go Tests
     if: github.repository == 'wailsapp/wails'

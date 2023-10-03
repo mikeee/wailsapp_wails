@@ -119,6 +119,7 @@ func IsWindowMaximised(hwnd uintptr) bool {
 	style := uint32(getWindowLong(hwnd, GWL_STYLE))
 	return style&WS_MAXIMIZE != 0
 }
+
 func IsWindowMinimised(hwnd uintptr) bool {
 	style := uint32(getWindowLong(hwnd, GWL_STYLE))
 	return style&WS_MINIMIZE != 0
@@ -135,6 +136,7 @@ func ShowWindow(hwnd uintptr) {
 func ShowWindowMaximised(hwnd uintptr) {
 	showWindow(hwnd, SW_MAXIMIZE)
 }
+
 func ShowWindowMinimised(hwnd uintptr) {
 	showWindow(hwnd, SW_MINIMIZE)
 }

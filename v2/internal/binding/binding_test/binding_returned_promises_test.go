@@ -32,8 +32,10 @@ export function SingleReturnWithError(arg1:number):Promise<string>;
 export function TwoReturn(arg1:any):Promise<string|number>;
 `
 
-type PromisesTest struct{}
-type PromisesTestReturnStruct struct{}
+type (
+	PromisesTest             struct{}
+	PromisesTestReturnStruct struct{}
+)
 
 func (h *PromisesTest) NoReturn(_ string)              {}
 func (h *PromisesTest) ErrorReturn(_ int) error        { return nil }
@@ -41,12 +43,15 @@ func (h *PromisesTest) SingleReturn(_ interface{}) int { return 0 }
 func (h *PromisesTest) SingleReturnStructPointer(_ interface{}) *PromisesTestReturnStruct {
 	return &PromisesTestReturnStruct{}
 }
+
 func (h *PromisesTest) SingleReturnStruct(_ interface{}) PromisesTestReturnStruct {
 	return PromisesTestReturnStruct{}
 }
+
 func (h *PromisesTest) SingleReturnStructSlice(_ interface{}) []PromisesTestReturnStruct {
 	return []PromisesTestReturnStruct{}
 }
+
 func (h *PromisesTest) SingleReturnStructPointerSlice(_ interface{}) []*PromisesTestReturnStruct {
 	return []*PromisesTestReturnStruct{}
 }

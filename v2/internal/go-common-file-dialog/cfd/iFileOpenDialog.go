@@ -4,10 +4,11 @@
 package cfd
 
 import (
-	"github.com/go-ole/go-ole"
-	"github.com/wailsapp/wails/v2/internal/go-common-file-dialog/util"
 	"syscall"
 	"unsafe"
+
+	"github.com/go-ole/go-ole"
+	"github.com/wailsapp/wails/v2/internal/go-common-file-dialog/util"
 )
 
 var (
@@ -89,8 +90,8 @@ func (fileOpenDialog *iFileOpenDialog) GetResult() (string, error) {
 	return fileOpenDialog.vtbl.getResultString(unsafe.Pointer(fileOpenDialog))
 }
 
-func (fileOpenDialog *iFileOpenDialog) Release() error {
-	return fileOpenDialog.vtbl.release(unsafe.Pointer(fileOpenDialog))
+func (fileOpenDialog *iFileOpenDialog) Release() {
+	panic(fileOpenDialog.vtbl.release(unsafe.Pointer(fileOpenDialog)))
 }
 
 func (fileOpenDialog *iFileOpenDialog) SetDefaultFolder(defaultFolderPath string) error {

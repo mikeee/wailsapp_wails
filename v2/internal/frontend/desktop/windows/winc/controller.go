@@ -47,7 +47,7 @@ type Controller interface {
 	PreTranslateMessage(msg *w32.MSG) bool
 	WndProc(msg uint32, wparam, lparam uintptr) uintptr
 
-	//General events
+	// General events
 	OnCreate() *EventManager
 	OnClose() *EventManager
 
@@ -55,10 +55,10 @@ type Controller interface {
 	OnKillFocus() *EventManager
 	OnSetFocus() *EventManager
 
-	//Drag and drop events
+	// Drag and drop events
 	OnDropFiles() *EventManager
 
-	//Mouse events
+	// Mouse events
 	OnLBDown() *EventManager
 	OnLBUp() *EventManager
 	OnLBDbl() *EventManager
@@ -74,10 +74,10 @@ type Controller interface {
 	OnMouseHover() *EventManager
 	OnMouseLeave() *EventManager
 
-	//Keyboard events
+	// Keyboard events
 	OnKeyUp() *EventManager
 
-	//Paint events
+	// Paint events
 	OnPaint() *EventManager
 	OnSize() *EventManager
 

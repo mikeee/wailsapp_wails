@@ -46,8 +46,10 @@ func (pa *Panel) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 	return w32.DefWindowProc(pa.hwnd, msg, wparam, lparam)
 }
 
-var errorPanelPen = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(255, 128, 128)))
-var errorPanelOkPen = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(220, 220, 220)))
+var (
+	errorPanelPen   = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(255, 128, 128)))
+	errorPanelOkPen = NewPen(w32.PS_GEOMETRIC, 2, NewSolidColorBrush(RGB(220, 220, 220)))
+)
 
 // ErrorPanel shows errors or important messages.
 // It is meant to stand out of other on screen controls.

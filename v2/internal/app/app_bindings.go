@@ -17,7 +17,6 @@ import (
 )
 
 func (a *App) Run() error {
-
 	// Create binding exemptions - Ugly hack. There must be a better way
 	bindingExemptions := []interface{}{
 		a.options.OnStartup,
@@ -74,11 +73,9 @@ func CreateApp(appoptions *options.App) (*App, error) {
 	}
 
 	return result, nil
-
 }
 
 func generateBindings(bindings *binding.Bindings) error {
-
 	cwd, err := os.Getwd()
 	if err != nil {
 		return err
@@ -110,5 +107,5 @@ func generateBindings(bindings *binding.Bindings) error {
 		return err
 	}
 
-	return fs.SetPermissions(wailsjsbasedir, 0755)
+	return fs.SetPermissions(wailsjsbasedir, 0o755)
 }

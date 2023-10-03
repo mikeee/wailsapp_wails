@@ -9,9 +9,10 @@ package win32
 
 import (
 	"bytes"
-	"github.com/wailsapp/wails/v2/pkg/menu/keys"
 	"strings"
 	"unsafe"
+
+	"github.com/wailsapp/wails/v2/pkg/menu/keys"
 )
 
 type Key uint16
@@ -599,7 +600,6 @@ var ModifierMap = map[keys.Modifier]Modifiers{
 var NoShortcut = Shortcut{}
 
 func AcceleratorToShortcut(accelerator *keys.Accelerator) Shortcut {
-
 	if accelerator == nil {
 		return NoShortcut
 	}

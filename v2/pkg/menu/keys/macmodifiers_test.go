@@ -3,7 +3,6 @@ package keys
 import "testing"
 
 func TestToMacModifier(t *testing.T) {
-
 	tests := []struct {
 		name        string
 		accelerator *Accelerator

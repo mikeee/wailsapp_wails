@@ -21,7 +21,6 @@ func (g *radioGroup) Click(item *menu.MenuItem) {
 }
 
 type processedMenu struct {
-
 	// the menu we processed
 	menu *menu.Menu
 
@@ -96,7 +95,6 @@ func (p *processedMenu) processClick(item *menu.MenuItem) {
 	if item.Type == menu.CheckboxType {
 		p.updateMenuItemCallback(item)
 	}
-
 }
 
 func (p *processedMenu) addRadioGroup(r radioGroup) {
@@ -120,7 +118,6 @@ func (m *Manager) AddMenu(menu *menu.Menu, updateMenuItemCallback func(*menu.Men
 }
 
 func (m *Manager) ProcessClick(item *menu.MenuItem) {
-
 	// if menuitem is a checkbox, then we need to toggle the state
 	if item.Type == menu.CheckboxType {
 		item.Checked = !item.Checked

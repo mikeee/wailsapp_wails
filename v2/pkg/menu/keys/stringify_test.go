@@ -6,7 +6,6 @@ import (
 )
 
 func TestStringify(t *testing.T) {
-
 	const Windows = "windows"
 	const Mac = "darwin"
 	const Linux = "linux"

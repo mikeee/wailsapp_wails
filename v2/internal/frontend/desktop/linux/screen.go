@@ -42,6 +42,7 @@ Screen GetNThMonitor(int monitor_num, GtkWindow *window){
 }
 */
 import "C"
+
 import (
 	"sync"
 

@@ -66,5 +66,5 @@ func (cb *ComboBox) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 		}
 	}
 	return w32.DefWindowProc(cb.hwnd, msg, wparam, lparam)
-	//return cb.W32Control.WndProc(msg, wparam, lparam)
+	// return cb.W32Control.WndProc(msg, wparam, lparam)
 }

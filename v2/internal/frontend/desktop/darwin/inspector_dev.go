@@ -64,6 +64,7 @@ void setupF12hotkey() {
 }
 */
 import "C"
+
 import (
 	"unsafe"
 )

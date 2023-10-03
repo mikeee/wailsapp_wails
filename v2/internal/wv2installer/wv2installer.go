@@ -28,7 +28,7 @@ func Process(appoptions *options.App) (string, error) {
 	installStatus := needsInstalling
 
 	// Override version check for manually specified webview path if present
-	var webviewPath = ""
+	webviewPath := ""
 	if opts := appoptions.Windows; opts != nil && opts.WebviewBrowserPath != "" {
 		webviewPath = opts.WebviewBrowserPath
 	}

@@ -4,9 +4,10 @@
 package cfd
 
 import (
+	"unsafe"
+
 	"github.com/go-ole/go-ole"
 	"github.com/wailsapp/wails/v2/internal/go-common-file-dialog/util"
-	"unsafe"
 )
 
 var (
@@ -60,8 +61,8 @@ func (fileSaveDialog *iFileSaveDialog) GetResult() (string, error) {
 	return fileSaveDialog.vtbl.getResultString(unsafe.Pointer(fileSaveDialog))
 }
 
-func (fileSaveDialog *iFileSaveDialog) Release() error {
-	return fileSaveDialog.vtbl.release(unsafe.Pointer(fileSaveDialog))
+func (fileSaveDialog *iFileSaveDialog) Release() {
+	panic(fileSaveDialog.vtbl.release(unsafe.Pointer(fileSaveDialog)))
 }
 
 func (fileSaveDialog *iFileSaveDialog) SetDefaultFolder(defaultFolderPath string) error {

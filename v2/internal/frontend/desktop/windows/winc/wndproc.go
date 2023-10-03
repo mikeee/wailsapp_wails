@@ -51,20 +51,19 @@ func genDropFilesEventArg(wparam uintptr) *DropFilesEventData {
 }
 
 func generalWndProc(hwnd w32.HWND, msg uint32, wparam, lparam uintptr) uintptr {
-
 	switch msg {
 	case w32.WM_HSCROLL:
-		//println("case w32.WM_HSCROLL")
+		// println("case w32.WM_HSCROLL")
 
 	case w32.WM_VSCROLL:
-		//println("case w32.WM_VSCROLL")
+		// println("case w32.WM_VSCROLL")
 	}
 
 	if controller := GetMsgHandler(hwnd); controller != nil {
 		ret := controller.WndProc(msg, wparam, lparam)
 
 		switch msg {
-		case w32.WM_NOTIFY: //Reflect notification to control
+		case w32.WM_NOTIFY: // Reflect notification to control
 			nm := (*w32.NMHDR)(unsafe.Pointer(lparam))
 			if controller := GetMsgHandler(nm.HwndFrom); controller != nil {
 				ret := controller.WndProc(msg, wparam, lparam)
@@ -74,7 +73,7 @@ func generalWndProc(hwnd w32.HWND, msg uint32, wparam, lparam uintptr) uintptr {
 				}
 			}
 		case w32.WM_COMMAND:
-			if lparam != 0 { //Reflect message to control
+			if lparam != 0 { // Reflect message to control
 				h := w32.HWND(lparam)
 				if controller := GetMsgHandler(h); controller != nil {
 					ret := controller.WndProc(msg, wparam, lparam)
@@ -93,7 +92,7 @@ func generalWndProc(hwnd w32.HWND, msg uint32, wparam, lparam uintptr) uintptr {
 		case w32.WM_DROPFILES:
 			controller.OnDropFiles().Fire(NewEvent(controller, genDropFilesEventArg(wparam)))
 		case w32.WM_CONTEXTMENU:
-			if wparam != 0 { //Reflect message to control
+			if wparam != 0 { // Reflect message to control
 				h := w32.HWND(wparam)
 				if controller := GetMsgHandler(h); controller != nil {
 					contextMenu := controller.ContextMenu()

@@ -101,7 +101,6 @@ func (a *Apt) removeEscapeSequences(in string) string {
 }
 
 func (a *Apt) getPackageVersion(pkg *Package, output string) {
-
 	splitOutput := strings.Split(output, " ")
 	if len(splitOutput) > 1 {
 		pkg.Version = splitOutput[1]

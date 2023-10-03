@@ -1,8 +1,9 @@
 package util
 
 import (
-	"github.com/go-ole/go-ole"
 	"testing"
+
+	"github.com/go-ole/go-ole"
 )
 
 func TestStringToUUID(t *testing.T) {

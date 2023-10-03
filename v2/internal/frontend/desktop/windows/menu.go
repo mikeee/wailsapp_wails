@@ -8,8 +8,10 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/menu"
 )
 
-var checkboxMap = map[*menu.MenuItem][]*winc.MenuItem{}
-var radioGroupMap = map[*menu.MenuItem][]*winc.MenuItem{}
+var (
+	checkboxMap   = map[*menu.MenuItem][]*winc.MenuItem{}
+	radioGroupMap = map[*menu.MenuItem][]*winc.MenuItem{}
+)
 
 func toggleCheckBox(menuItem *menu.MenuItem) {
 	menuItem.Checked = !menuItem.Checked

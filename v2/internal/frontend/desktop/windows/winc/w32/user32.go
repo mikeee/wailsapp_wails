@@ -68,7 +68,7 @@ var (
 	procGetSystemMetrics              = moduser32.NewProc("GetSystemMetrics")
 	procPostThreadMessageW            = moduser32.NewProc("PostThreadMessageW")
 	procRegisterWindowMessageA        = moduser32.NewProc("RegisterWindowMessageA")
-	//procSysColorBrush            = moduser32.NewProc("GetSysColorBrush")
+	// procSysColorBrush            = moduser32.NewProc("GetSysColorBrush")
 	procCopyRect          = moduser32.NewProc("CopyRect")
 	procEqualRect         = moduser32.NewProc("EqualRect")
 	procInflateRect       = moduser32.NewProc("InflateRect")
@@ -85,12 +85,12 @@ var (
 	procGetDlgItem        = moduser32.NewProc("GetDlgItem")
 	procDrawIcon          = moduser32.NewProc("DrawIcon")
 	procCreateMenu        = moduser32.NewProc("CreateMenu")
-	//procSetMenu                  = moduser32.NewProc("SetMenu")
+	// procSetMenu                  = moduser32.NewProc("SetMenu")
 	procDestroyMenu        = moduser32.NewProc("DestroyMenu")
 	procCreatePopupMenu    = moduser32.NewProc("CreatePopupMenu")
 	procCheckMenuRadioItem = moduser32.NewProc("CheckMenuRadioItem")
-	//procDrawMenuBar     = moduser32.NewProc("DrawMenuBar")
-	//procInsertMenuItem                = moduser32.NewProc("InsertMenuItemW") // FIXIT:
+	// procDrawMenuBar     = moduser32.NewProc("DrawMenuBar")
+	// procInsertMenuItem                = moduser32.NewProc("InsertMenuItemW") // FIXIT:
 
 	procClientToScreen                = moduser32.NewProc("ClientToScreen")
 	procIsDialogMessage               = moduser32.NewProc("IsDialogMessageW")
@@ -245,7 +245,8 @@ func PostMainThreadMessage(msg uint32, wp, lp uintptr) bool {
 
 func CreateWindowEx(exStyle uint, className, windowName *uint16,
 	style uint, x, y, width, height int, parent HWND, menu HMENU,
-	instance HINSTANCE, param unsafe.Pointer) HWND {
+	instance HINSTANCE, param unsafe.Pointer,
+) HWND {
 	ret, _, _ := procCreateWindowEx.Call(
 		uintptr(exStyle),
 		uintptr(unsafe.Pointer(className)),
@@ -348,7 +349,6 @@ func TranslateMessage(msg *MSG) bool {
 		uintptr(unsafe.Pointer(msg)))
 
 	return ret != 0
-
 }
 
 func DispatchMessage(msg *MSG) uintptr {
@@ -356,7 +356,6 @@ func DispatchMessage(msg *MSG) uintptr {
 		uintptr(unsafe.Pointer(msg)))
 
 	return ret
-
 }
 
 func SendMessage(hwnd HWND, msg uint32, wParam, lParam uintptr) uintptr {
@@ -436,7 +435,6 @@ func MoveWindow(hwnd HWND, x, y, width, height int, repaint bool) bool {
 		uintptr(BoolToBOOL(repaint)))
 
 	return ret != 0
-
 }
 
 func ScreenToClient(hwnd HWND, x, y int) (X, Y int, ok bool) {
@@ -800,7 +798,6 @@ func SelectRadioMenuItem(menuID uint16, startID uint16, endID uint16, hwnd HWND)
 		uintptr(menuID),
 		MF_BYCOMMAND)
 	return ret != 0
-
 }
 
 func CreatePopupMenu() HMENU {

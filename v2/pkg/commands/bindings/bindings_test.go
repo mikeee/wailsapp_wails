@@ -1,13 +1,14 @@
 package bindings
 
 import (
-	"github.com/matryer/is"
-	"github.com/wailsapp/wails/v2/pkg/templates"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/matryer/is"
+	"github.com/wailsapp/wails/v2/pkg/templates"
 )
 
 const standardBindings = `// @ts-check
@@ -29,7 +30,6 @@ export function Greet(arg1) {
 `
 
 func TestGenerateBindings(t *testing.T) {
-
 	i := is.New(t)
 
 	// Get the directory of this file
@@ -66,7 +66,7 @@ func TestGenerateBindings(t *testing.T) {
 	goModString = strings.Join(goModSplit, "=> ")
 	goMod = []byte(strings.ReplaceAll(goModString, "// replace", "replace"))
 	// Write file back
-	err = os.WriteFile(goModPath, goMod, 0755)
+	err = os.WriteFile(goModPath, goMod, 0o755)
 	i.NoErr(err)
 
 	tests := []struct {

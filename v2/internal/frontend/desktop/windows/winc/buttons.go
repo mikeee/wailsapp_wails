@@ -34,7 +34,7 @@ func (bt *Button) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 		println("GETDLGCODE")*/
 	}
 	return w32.DefWindowProc(bt.hwnd, msg, wparam, lparam)
-	//return bt.W32Control.WndProc(msg, wparam, lparam)
+	// return bt.W32Control.WndProc(msg, wparam, lparam)
 }
 
 func (bt *Button) Checked() bool {

@@ -3,6 +3,11 @@
 version: "3"
 
 tasks:
+  lint:
+    summary: Run golangci-lint
+    cmds:
+      - golangci-lint run ./... --timeout=3m
+
   release:
     summary: Release a new version of Task. Call with `task v2:release -- <version>`
     dir: tools/release

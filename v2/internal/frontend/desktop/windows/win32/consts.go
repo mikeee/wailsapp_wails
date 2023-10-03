@@ -8,9 +8,11 @@ import (
 	"github.com/wailsapp/wails/v2/internal/system/operatingsystem"
 )
 
-type HRESULT int32
-type HANDLE uintptr
-type HMONITOR HANDLE
+type (
+	HRESULT  int32
+	HANDLE   uintptr
+	HMONITOR HANDLE
+)
 
 var (
 	moduser32                      = syscall.NewLazyDLL("user32.dll")
@@ -30,15 +32,18 @@ var (
 	procGetClipboardData           = moduser32.NewProc("GetClipboardData")
 	procSetClipboardData           = moduser32.NewProc("SetClipboardData")
 )
+
 var (
 	moddwmapi                        = syscall.NewLazyDLL("dwmapi.dll")
 	procDwmSetWindowAttribute        = moddwmapi.NewProc("DwmSetWindowAttribute")
 	procDwmExtendFrameIntoClientArea = moddwmapi.NewProc("DwmExtendFrameIntoClientArea")
 )
+
 var (
 	modwingdi            = syscall.NewLazyDLL("gdi32.dll")
 	procCreateSolidBrush = modwingdi.NewProc("CreateSolidBrush")
 )
+
 var (
 	kernel32           = syscall.NewLazyDLL("kernel32")
 	kernelGlobalAlloc  = kernel32.NewProc("GlobalAlloc")

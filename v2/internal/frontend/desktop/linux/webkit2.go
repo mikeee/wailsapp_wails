@@ -7,6 +7,7 @@ package linux
 #include "webkit2/webkit2.h"
 */
 import "C"
+
 import (
 	"fmt"
 

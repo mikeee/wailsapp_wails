@@ -9,7 +9,6 @@ import (
 )
 
 func PreflightChecks(options *options.App, logger *logger.Logger) error {
-
 	_ = options
 
 	// Process the webview2 runtime situation. We can pass a strategy in via the `webview2` flag for `wails build`.

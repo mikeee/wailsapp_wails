@@ -3,7 +3,6 @@ package shell
 import "testing"
 
 func TestUpdateEnv(t *testing.T) {
-
 	env := []string{"one=1", "two=a=b", "three="}
 	newEnv := UpsertEnv(env, "two", func(v string) string {
 		return v + "+added"

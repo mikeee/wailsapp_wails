@@ -101,7 +101,6 @@ func (e *Eopkg) intialiseName() {
 }
 
 func (e *Eopkg) getPackageVersion(pkg *Package, output string) {
-
 	versionRegex := regexp.MustCompile(`.*Name.*version:\s+(.*)+, release: (.*)`)
 	matches := versionRegex.FindStringSubmatch(output)
 	pkg.Version = ""

@@ -7,7 +7,6 @@ import (
 )
 
 func TestParse(t *testing.T) {
-
 	i := is.New(t)
 
 	type args struct {

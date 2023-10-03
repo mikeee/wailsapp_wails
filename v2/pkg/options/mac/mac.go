@@ -21,7 +21,7 @@ type Options struct {
 	WebviewIsTransparent bool
 	WindowIsTranslucent  bool
 	Preferences          *Preferences
-	//ActivationPolicy     ActivationPolicy
+	// ActivationPolicy     ActivationPolicy
 	About *AboutInfo
-	//URLHandlers          map[string]func(string)
+	// URLHandlers          map[string]func(string)
 }

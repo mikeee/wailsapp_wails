@@ -35,7 +35,7 @@ type PaintEventData struct {
 type LabelEditEventData struct {
 	Item ListItem
 	Text string
-	//PszText *uint16
+	// PszText *uint16
 }
 
 /*type LVDBLClickEventData struct {

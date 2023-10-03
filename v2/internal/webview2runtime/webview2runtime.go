@@ -25,8 +25,8 @@ type Info struct {
 // IsOlderThan returns true if the installed version is older than the given required version.
 // Returns error if something goes wrong.
 func (i *Info) IsOlderThan(requiredVersion string) (bool, error) {
-	var mod = syscall.NewLazyDLL("WebView2Loader.dll")
-	var CompareBrowserVersions = mod.NewProc("CompareBrowserVersions")
+	mod := syscall.NewLazyDLL("WebView2Loader.dll")
+	CompareBrowserVersions := mod.NewProc("CompareBrowserVersions")
 	v1, err := syscall.UTF16PtrFromString(i.Version)
 	if err != nil {
 		return false, err
@@ -82,7 +82,6 @@ func InstallUsingEmbeddedBootstrapper() (bool, error) {
 	}
 
 	return result, os.Remove(installer)
-
 }
 
 // InstallUsingBootstrapper will extract the embedded bootstrapper from Microsoft and run it to install
@@ -90,7 +89,6 @@ func InstallUsingEmbeddedBootstrapper() (bool, error) {
 // Returns true if the installer ran successfully.
 // Returns an error if something goes wrong
 func InstallUsingBootstrapper() (bool, error) {
-
 	installer, err := downloadBootstrapper()
 	if err != nil {
 		return false, err
@@ -102,7 +100,6 @@ func InstallUsingBootstrapper() (bool, error) {
 	}
 
 	return result, os.Remove(installer)
-
 }
 
 func runInstaller(installer string) (bool, error) {

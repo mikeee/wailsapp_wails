@@ -10,7 +10,6 @@ import (
 )
 
 func (i *Info) discover() error {
-
 	var err error
 	osinfo, err := operatingsystem.Info()
 	if err != nil {
@@ -41,5 +40,4 @@ func checkWebView2() *packagemanager.Dependency {
 		Optional:       false,
 		External:       true,
 	}
-
 }

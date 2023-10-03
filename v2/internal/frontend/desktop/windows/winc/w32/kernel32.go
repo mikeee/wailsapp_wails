@@ -299,7 +299,8 @@ func SetConsoleTextAttribute(hConsoleOutput HANDLE, wAttributes uint16) bool {
 }
 
 func GetDiskFreeSpaceEx(dirName string) (r bool,
-	freeBytesAvailable, totalNumberOfBytes, totalNumberOfFreeBytes uint64) {
+	freeBytesAvailable, totalNumberOfBytes, totalNumberOfFreeBytes uint64,
+) {
 	ret, _, _ := procGetDiskFreeSpaceEx.Call(
 		uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(dirName))),
 		uintptr(unsafe.Pointer(&freeBytesAvailable)),

@@ -10,15 +10,19 @@ import (
 
 type DWMWINDOWATTRIBUTE int32
 
-const DwmwaUseImmersiveDarkModeBefore20h1 DWMWINDOWATTRIBUTE = 19
-const DwmwaUseImmersiveDarkMode DWMWINDOWATTRIBUTE = 20
-const DwmwaBorderColor DWMWINDOWATTRIBUTE = 34
-const DwmwaCaptionColor DWMWINDOWATTRIBUTE = 35
-const DwmwaTextColor DWMWINDOWATTRIBUTE = 36
-const DwmwaSystemBackdropType DWMWINDOWATTRIBUTE = 38
+const (
+	DwmwaUseImmersiveDarkModeBefore20h1 DWMWINDOWATTRIBUTE = 19
+	DwmwaUseImmersiveDarkMode           DWMWINDOWATTRIBUTE = 20
+	DwmwaBorderColor                    DWMWINDOWATTRIBUTE = 34
+	DwmwaCaptionColor                   DWMWINDOWATTRIBUTE = 35
+	DwmwaTextColor                      DWMWINDOWATTRIBUTE = 36
+	DwmwaSystemBackdropType             DWMWINDOWATTRIBUTE = 38
+)
 
-const SPI_GETHIGHCONTRAST = 0x0042
-const HCF_HIGHCONTRASTON = 0x00000001
+const (
+	SPI_GETHIGHCONTRAST = 0x0042
+	HCF_HIGHCONTRASTON  = 0x00000001
+)
 
 // BackdropType defines the type of translucency we wish to use
 type BackdropType int32

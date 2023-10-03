@@ -8,7 +8,6 @@ import (
 )
 
 func (w *Window) UpdateTheme() {
-
 	// Don't redraw theme if nothing has changed
 	if !w.themeChanged {
 		return

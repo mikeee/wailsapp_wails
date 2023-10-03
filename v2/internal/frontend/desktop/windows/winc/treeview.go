@@ -280,7 +280,6 @@ func (tv *TreeView) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 		case w32.TVN_GETDISPINFO:
 			tv.onViewChange.Fire(NewEvent(tv, nil))
 		}
-
 	}
 	return w32.DefWindowProc(tv.hwnd, msg, wparam, lparam)
 }

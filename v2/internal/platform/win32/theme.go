@@ -3,22 +3,27 @@
 package win32
 
 import (
-	"golang.org/x/sys/windows/registry"
 	"unsafe"
+
+	"golang.org/x/sys/windows/registry"
 )
 
 type DWMWINDOWATTRIBUTE int32
 
-const DwmwaUseImmersiveDarkModeBefore20h1 DWMWINDOWATTRIBUTE = 19
-const DwmwaUseImmersiveDarkMode DWMWINDOWATTRIBUTE = 20
-const DwmwaBorderColor DWMWINDOWATTRIBUTE = 34
-const DwmwaCaptionColor DWMWINDOWATTRIBUTE = 35
-const DwmwaTextColor DWMWINDOWATTRIBUTE = 36
-const DwmwaSystemBackdropType DWMWINDOWATTRIBUTE = 38
+const (
+	DwmwaUseImmersiveDarkModeBefore20h1 DWMWINDOWATTRIBUTE = 19
+	DwmwaUseImmersiveDarkMode           DWMWINDOWATTRIBUTE = 20
+	DwmwaBorderColor                    DWMWINDOWATTRIBUTE = 34
+	DwmwaCaptionColor                   DWMWINDOWATTRIBUTE = 35
+	DwmwaTextColor                      DWMWINDOWATTRIBUTE = 36
+	DwmwaSystemBackdropType             DWMWINDOWATTRIBUTE = 38
+)
 
-const SPI_GETHIGHCONTRAST = 0x0042
-const HCF_HIGHCONTRASTON = 0x00000001
-const WCA_ACCENT_POLICY WINDOWCOMPOSITIONATTRIB = 19
+const (
+	SPI_GETHIGHCONTRAST                         = 0x0042
+	HCF_HIGHCONTRASTON                          = 0x00000001
+	WCA_ACCENT_POLICY   WINDOWCOMPOSITIONATTRIB = 19
+)
 
 type ACCENT_STATE DWORD
 
@@ -102,7 +107,7 @@ func SetTheme(hwnd HWND, useDarkMode bool) {
 }
 
 func EnableBlurBehind(hwnd HWND) {
-	var accent = ACCENT_POLICY{
+	accent := ACCENT_POLICY{
 		AccentState: ACCENT_ENABLE_ACRYLICBLURBEHIND,
 		AccentFlags: 0x2,
 	}
@@ -158,6 +163,7 @@ func SetWindowTheme(hwnd HWND, appName string, subIdList string) uintptr {
 
 	return ret
 }
+
 func IsCurrentlyDarkMode() bool {
 	key, err := registry.OpenKey(registry.CURRENT_USER, `SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize`, registry.QUERY_VALUE)
 	if err != nil {

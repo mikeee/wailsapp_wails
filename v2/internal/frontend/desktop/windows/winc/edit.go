@@ -14,8 +14,10 @@ type Edit struct {
 	onChange EventManager
 }
 
-const passwordChar = '*'
-const nopasswordChar = ' '
+const (
+	passwordChar   = '*'
+	nopasswordChar = ' '
+)
 
 func NewEdit(parent Controller) *Edit {
 	edt := new(Edit)
@@ -102,7 +104,6 @@ func (med *MultiEdit) AddLine(text string) {
 
 func (med *MultiEdit) WndProc(msg uint32, wparam, lparam uintptr) uintptr {
 	switch msg {
-
 	case w32.WM_COMMAND:
 		switch w32.HIWORD(uint32(wparam)) {
 		case w32.EN_CHANGE:

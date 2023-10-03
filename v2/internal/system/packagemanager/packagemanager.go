@@ -23,7 +23,6 @@ var pmcommands = []string{
 
 // Find will attempt to find the system package manager
 func Find(osid string) PackageManager {
-
 	// Loop over pmcommands
 	for _, pmname := range pmcommands {
 		if shell.CommandExists(pmname) {
@@ -57,7 +56,6 @@ func newPackageManager(pmname string, osid string) PackageManager {
 // Returns a list of dependencies search for, whether they were found
 // and whether they were installed
 func Dependencies(p PackageManager) (DependencyList, error) {
-
 	var dependencies DependencyList
 
 	for name, packages := range p.Packages() {
@@ -102,7 +100,6 @@ func Dependencies(p PackageManager) (DependencyList, error) {
 
 // AppVersion returns the version for application related to the given package
 func AppVersion(name string) string {
-
 	if name == "gcc" {
 		return gccVersion()
 	}
@@ -120,11 +117,9 @@ func AppVersion(name string) string {
 	}
 
 	return ""
-
 }
 
 func gccVersion() string {
-
 	var version string
 	var err error
 
