@@ -206,7 +206,7 @@ func compileResources(options *Options) error {
 		return err
 	}
 	defer func() {
-		os.Chdir(currentDir)
+		err = os.Chdir(currentDir)
 	}()
 	windowsDir := filepath.Join(options.ProjectData.GetBuildDir(), "windows")
 	err = os.Chdir(windowsDir)
