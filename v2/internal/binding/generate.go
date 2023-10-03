@@ -82,7 +82,7 @@ func (b *Bindings) GenerateGoBindings(baseDir string) error {
 					jsoutput.WriteString(fmt.Sprintf("  return window['go']['%s']['%s']['%s'](%s);", packageName, structName, methodName, argsString))
 				}
 				jsoutput.WriteString("\n")
-				jsoutput.WriteString(fmt.Sprintf("}"))
+				jsoutput.WriteString(fmt.Sprint("}"))
 				jsoutput.WriteString("\n")
 
 				// Generate TS
