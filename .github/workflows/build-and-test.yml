@@ -21,9 +21,9 @@ jobs:
       - name: Run Linter
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.54
+          version: v1.54.2
           working-directory: ./v2
-          args: --config=./.golangci.yml
+          args: ./...
 
   test_go:
     name: Run Go Tests
