@@ -23,6 +23,7 @@ jobs:
         with:
           version: v1.54
           working-directory: ./v2
+          args: --timeout=10m0s --config ./v2/.golangci.yml
 
   test_go:
     name: Run Go Tests
